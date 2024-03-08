@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Spread</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <h1>Calculadora de Spread</h1>
-    <form method="post">
-        <label for="taxa_oferecida">Taxa Oferecida:</label>
-        <input type="text" id="taxa_oferecida" name="taxa_oferecida">
-        <br>
-        <label for="trashold">Limite:</label>
-        <input type="text" id="trashold" name="trashold">
-        <br>
-        <button type="submit">Calcular Spread</button>
-    </form>
-
-    {% if error_message %}
-    <p>{{ error_message }}</p>
-    {% endif %}
-
-    {% if spread_10bps %}
-    <h2>Resultados:</h2>
-    <p>Spread 10BPS: {{ spread_10bps }}</p>
-    <p>Spread 15BPS: {{ spread_15bps }}</p>
-    <p>Spread 20BPS: {{ spread_20bps }}</p>
-    <p>Spread 25BPS: {{ spread_25bps }}</p>
-    <p>Taxa Coletada: {{ taxa_coletada }}</p>
-    <p>Taxa Oferecida: {{ taxa_oferecida }}</p>
-    <p>Spread: {{ spread }}</p>
-    <p>Limite: {{ trashold }}</p>
-    <p>{{ status }}</p>
-    {% endif %}
+    <div class="container">
+        <div class="visor">
+            <div class="resultado">
+                <h2>Resultados:</h2>
+                {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+                {% else %}
+                <p><strong>Spread 10BPS:</strong> {{ spread_10bps }}</p>
+                <p><strong>Spread 15BPS:</strong> {{ spread_15bps }}</p>
+                <p><strong>Spread 20BPS:</strong> {{ spread_20bps }}</p>
+                <p><strong>Spread 25BPS:</strong> {{ spread_25bps }}</p>
+                <p><strong>Taxa Coletada:</strong> {{ taxa_coletada }}</p>
+                <p><strong>Taxa Oferecida:</strong> {{ taxa_oferecida }}</p>
+                <p><strong>Spread:</strong> {{ spread }}</p>
+                <p><strong>Limite:</strong> {{ trashold }}</p>
+                <p><strong>{{ status }}</strong></p>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Adicionando os elementos de formulário dentro do retângulo principal -->
+        <div class="formulario">
+            <form method="post">
+                <label for="taxa_oferecida">Taxa Oferecida:</label>
+                <input type="text" id="taxa_oferecida" name="taxa_oferecida">
+                <br>
+                <label for="trashold">Limite:</label>
+                <input type="text" id="trashold" name="trashold">
+                <br>
+                <button type="submit">Calcular Spread</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
