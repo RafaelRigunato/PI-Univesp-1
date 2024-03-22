@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Spread</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="visor">
+            <div class="resultado">
+                <h2>Resultados:</h2>
+                {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+                {% else %}
+                <p><strong>Taxa Spot (Á Vista):</strong> {{ taxa_coletada }}</p>
+                <p><strong>Taxa Oferecida pela Contraparte:</strong> {{ taxa_oferecida }}</p>
+                <p><strong>Limite de Spread imputado:</strong> {{ trashold }}</p>
+                <p><strong>Spread Efetivo:</strong> {{ spread }}</p>
+                <h3>Cenários:</h3>
+                <p><strong>Spot + 10BPS:</strong> {{ spread_10bps }}</p>
+                <p><strong>Spot + 15BPS:</strong> {{ spread_15bps }}</p>
+                <p><strong>Spot + 20BPS:</strong> {{ spread_20bps }}</p>
+                <p><strong>Spot + 25BPS:</strong> {{ spread_25bps }}</p>
+                
+                <p><strong>{{ status }}</strong></p>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Adicionando os elementos de formulário dentro do retângulo principal -->
+        <div class="formulario">
+            <form method="post">
+                <label for="taxa_oferecida">Taxa Oferecida:</label>
+                <input type="text" id="taxa_oferecida" name="taxa_oferecida">
+                <br>
+                <label for="trashold">Limite de Spread:</label>
+                <input type="text" id="trashold" name="trashold">
+                <br>
+                <br>
+                <label for="currency">Moeda:</label>
+                <select id="currency" name="currency">
+                    <option value=""></option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="COP">COP</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+                <br>
+                <br>
+                <label for="side">Compra/Venda:</label>
+                <select id="side" name="side">
+                    <option value=""></option>
+                    <option value="bid">Compra</option>
+                    <option value="ask">Venda</option>
+                </select>
+                <br>
+                <br>
+                <button type="submit">Calcular Spread</button>
+                <br>
+                <br>
+                <a href="/" class="button">Voltar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

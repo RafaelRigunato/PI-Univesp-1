@@ -46,3 +46,12 @@
 .formulario button:hover {
     background-color: rgb(153, 13, 113);
 }
+
+/* Estilo para os elementos do formulário */
+.formulario select {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Adicionando bordas arredondadas */
+}
