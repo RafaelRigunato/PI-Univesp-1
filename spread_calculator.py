@@ -17,8 +17,11 @@ def calcular_spread(currency, side, taxa_oferecida, trashold):
         taxa_coletada = cotadora(currency, side)
         if taxa_coletada is None:
             return {'error_message': "Erro ao obter taxa de câmbio."}
-
-        spread = round(taxa_oferecida - taxa_coletada, 4)
+        
+        if side == 'bid':
+            spread = round(taxa_oferecida - taxa_coletada, 4)
+        else :
+            spread = abs(round(taxa_oferecida - taxa_coletada, 4))
 
         spread_10bps = round(taxa_coletada + 0.010, 4)
         spread_15bps = round(taxa_coletada + 0.015, 4)
@@ -26,9 +29,9 @@ def calcular_spread(currency, side, taxa_oferecida, trashold):
         spread_25bps = round(taxa_coletada + 0.025, 4)
 
         if spread > trashold:
-            status = "SPREAD ACIMA, NÃO FECHAR"
+            status = "Spread fora do limite, não fechar."
         else:
-            status = "SPREAD ABAIXO, PODE FECHAR"
+            status = "Spread abaixo do limite, pode fechar."
 
         return {
             'spread_10bps': spread_10bps,

@@ -1,19 +1,48 @@
-/* Estilo para o contêiner principal */
-.container {
-    width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+/* Importação da fonte do Google Fonts */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(190, 190, 186);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Estilo para o retângulo do visor */
-.visor {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+/* Estilo para o contêiner principal */
+.container {
+    width: 400px;
     padding: 20px;
-    text-align: center;
+    border: 3px solid #000;
     border-radius: 10px;
+    background-color: #fde456e1;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o título */
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo para o botão */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b6a400;
+    border: none; /* Removido o contorno adicional */
+    color: #000;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: rgb(153, 13, 113);
+    transform: translateY(-2px);
 }
 
 /* Estilo para os elementos do formulário */
@@ -32,19 +61,23 @@
     width: 200px;
     padding: 5px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .formulario button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: #b6a400;
+    border: none; /* Removido o contorno adicional */
+    color: #000;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .formulario button:hover {
     background-color: rgb(153, 13, 113);
+    transform: translateY(-2px);
 }
 
 /* Estilo para os elementos do formulário */
@@ -53,5 +86,5 @@
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px; /* Adicionando bordas arredondadas */
+    border-radius: 5px;
 }
